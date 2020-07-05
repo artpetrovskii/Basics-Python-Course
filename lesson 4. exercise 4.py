@@ -1,9 +1,7 @@
 import random
 
-
 def new_damage(damage, armor):
     return damage / armor
-
 
 def attack(person1, person2):
     nice_shot = random.randint(1, 7)
