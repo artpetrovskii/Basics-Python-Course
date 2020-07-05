@@ -1,1 +1,2 @@
-lesson1exercise1
+a = int(input())
+print(a + 2)
