@@ -1,4 +1,4 @@
-list1 = ['4', 'dfsdf', 'kh43', 'vlof', 'dfsdf']
+list1 = ['4', 'dfsdf', 'kh43', 'dfsdf']
 list2 = ['456', 'dfsdf', '89']
 
 for item in list2:
