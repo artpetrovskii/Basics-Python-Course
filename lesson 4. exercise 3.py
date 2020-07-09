@@ -1,26 +1,56 @@
-def attack(person1, person2):
-    nice_shot = random.randint(1, 7)
-    if nice_shot >= 3:
-        person2['health'] -= person1['damage']
-        return person1, person2['health']
-    else:
-        person1['health'] -= person2['damage']
-        return person1['health'], person2
-    my_wanzer = {
-        'health': 100, 'damage': 30, 'name': input('Введите имя Ванзера')
+def attack_and_print_health(attacker, defender):
+    print(attack(attacker, defender))
+    print(get_person_health(attacker))
+    print(get_person_health(defender))
+    print()
+
+
+def attack(attacker, defender):
+    damage = attacker['damage']
+    defender['health'] -= damage
+    info = f"{attacker['name']} deals damage to {defender['name']}:"
+    "{damage} points"
+    return info
+
+
+def print_start_info(*persons):
+    for person in persons:
+        print(get_person_info(person))
+    print()
+
+
+def get_person_info(person):
+    info = f"{person['name']}: \n\tdamage = {person['damage']},"
+    "\n\thealth = {person['health']}"
+    return info
+
+
+def get_person_health(person):
+    info = f"{person['name']}`s health = {person['health']}"
+    return info
+
+
+def create_person(name):
+    person = {
+        'name': name,
+        'health': 100,
+        'damage': 50
     }
-    OCU = {
-        'health': 140, 'damage': 20, 'name': input('Введите противника Объединенного Океанического Союза')
-    }
-    turn = 1
-    while my_wanzer['health'] <= 0 and OCU['health'] <= 0:
-        if turn % 2 != 0:
-            my_wanzer, OCU = attack(my_wanzer, OCU)
-        else:
-            OCU, my_wanzer = attack(OCU, my_wanzer)
-            turn += 1
-    else:
-        if my_wanzer['health'] > 0:
-            print(f"{my_wanzer['name']}победил. Попробуй еще раз")
-        else:
-            print(f"{OCU['name']} победил. Попробуй еще раз")
+    return person
+
+
+def main():
+    print('test check...\n')
+
+    player = create_person('Player')
+    enemy = create_person('Enemy')
+
+    print_start_info(player, enemy)
+
+    attack_and_print_health(attacker=enemy, defender=player)
+    attack_and_print_health(attacker=player, defender=enemy)
+    attack_and_print_health(attacker=enemy, defender=player)
+
+
+if __name__ == '__main__':
+    main()
