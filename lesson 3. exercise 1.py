@@ -3,9 +3,13 @@
     begin = 1
     end = 100
     is_repeat = False
-    print("Я программа угадывающая числа от 1 до 100")
     input("Задумайте любое число от 1 до 100 и запишите"
           " его на бумаге. \n Как будете готовы, нажмите 'ввод'")
+
+    
+    def game():
+        print("Я программа угадывающая числа от 1 до 100")
+
 
     guesses = {1: "Я предположу, что вы загадали {}?",
                2: "Ммм... может {} загаданное число?",
@@ -25,7 +29,7 @@
 
     while True:
         if begin > end:
-            print(angry[random.randint(1, 3)])
+            print("Ошибка")
             break
         if not is_repeat:
             version = random.randint(begin, end)
@@ -43,5 +47,5 @@
             end = version - 1
             is_repeat = False
         else:
-            print(angry[random.randint(1, 3)])
+            print("Неверный ввод")
             is_repeat = True
