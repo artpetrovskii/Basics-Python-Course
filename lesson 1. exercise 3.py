@@ -13,7 +13,7 @@ while True:
     except:
         print("Введено некорректно значение. Попробуйте еще раз")
 
-    print("Введите вес: ")
+print("Введите вес: ")
 while True:
     try:
         weight = int(input())
